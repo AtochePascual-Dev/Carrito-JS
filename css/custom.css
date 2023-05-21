@@ -214,3 +214,19 @@ ul {
     margin-bottom: 10px;
     text-decoration: none;
 }
+
+.notificacion {
+    position: absolute;
+    top: -7px;
+    left: 25px;
+    padding: 1px 5px;
+    display: none;
+    border-radius: 50%;
+    color: white;
+    line-height: 1;
+    background-color: rgb(207, 14, 14);
+}
+
+.notificacion-activo {
+    display: block;
+}
