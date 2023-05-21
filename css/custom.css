@@ -38,6 +38,7 @@ header {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 ul {

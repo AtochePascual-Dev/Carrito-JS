@@ -9,6 +9,7 @@ let carritoCursos = [];
 // * EVENTOS
 document.addEventListener('DOMContentLoaded', () => {
   listaCursos.addEventListener('click', agregarCurso);
+  carrito.addEventListener('click', eliminarCurso);
 });
 
 
@@ -30,7 +31,7 @@ const agregarCurso = (event) => {
       ? aumentcarCantidadCurso(cursoObj)
       : agregarCursoCarrito(cursoObj);
 
-    carritoHTML();
+    mostrarCarritoHTML();
   }
 }
 
@@ -67,7 +68,7 @@ const aumentcarCantidadCurso = (cursoObj) => {
 };
 
 //* Muestra el carrito de cursos en el html
-const carritoHTML = () => {
+const mostrarCarritoHTML = () => {
 
   //* Limpiamos el html previo
   limpiarCarritoHTML();
@@ -94,5 +95,18 @@ const carritoHTML = () => {
 const limpiarCarritoHTML = () => {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.firstChild.remove();
+  }
+};
+
+//* Elimina un curso del carrito
+const eliminarCurso = (event) => {
+  event.preventDefault();
+
+  if (event.target.classList.contains('borrar-curso')) {
+    const cursoID = event.target.getAttribute('data-id');
+
+    carritoCursos = carritoCursos.filter(curso => curso.id != cursoID);
+
+    mostrarCarritoHTML();
   }
 };
