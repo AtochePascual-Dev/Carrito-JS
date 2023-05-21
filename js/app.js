@@ -53,7 +53,7 @@ const existeCursoEnCarritoCursos = (cursoObj) => {
 
 //* Agrega un curso al carrito
 const agregarCursoCarrito = (cursoObj) => {
-  carritoCursos = [...carritoCursos, cursoObj];
+  carritoCursos = [cursoObj, ...carritoCursos];
 }
 
 //* Aumenta la cantidad de un curso ya existente en el carrito
