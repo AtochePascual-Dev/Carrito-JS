@@ -54,3 +54,13 @@ const existeCursoEnCarritoCursos = (cursoObj) => {
 const agregarCursoCarrito = (cursoObj) => {
   carritoCursos = [...carritoCursos, cursoObj];
 }
+
+//* Aumenta la cantidad de un curso ya existente en el carrito
+const aumentcarCantidadCurso = (cursoObj) => {
+  carritoCursos = carritoCursos.map(curso => {
+    if (curso.id === cursoObj.id) {
+      curso.cantidad++;
+    };
+    return curso;
+  });
+};
