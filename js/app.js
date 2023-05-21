@@ -28,8 +28,9 @@ const agregarCurso = (event) => {
 
     (existe)
       ? aumentcarCantidadCurso(cursoObj)
-      : agregarCursoCarrito(cursoObj)
+      : agregarCursoCarrito(cursoObj);
 
+    carritoHTML();
   }
 }
 
@@ -62,5 +63,23 @@ const aumentcarCantidadCurso = (cursoObj) => {
       curso.cantidad++;
     };
     return curso;
+  });
+};
+
+//* Muestra el carrito de cursos en el html
+const carritoHTML = () => {
+
+  carritoCursos.forEach(curso => {
+    const { imagen, titulo, precio, id, cantidad } = curso;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+    <td><img src="${imagen}" width="150"/></td>
+    <td>${titulo}</td>
+    <td>${precio}</td>
+    <td>${cantidad}</td>
+    `;
+
+    contenedorCarrito.appendChild(row);
   });
 };
