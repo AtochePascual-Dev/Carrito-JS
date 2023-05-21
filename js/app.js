@@ -69,6 +69,9 @@ const aumentcarCantidadCurso = (cursoObj) => {
 //* Muestra el carrito de cursos en el html
 const carritoHTML = () => {
 
+  //* Limpiamos el html previo
+  limpiarCarritoHTML();
+
   carritoCursos.forEach(curso => {
     const { imagen, titulo, precio, id, cantidad } = curso;
 
@@ -82,4 +85,11 @@ const carritoHTML = () => {
 
     contenedorCarrito.appendChild(row);
   });
+};
+
+// * Limpia el carrito HTML
+const limpiarCarritoHTML = () => {
+  while (contenedorCarrito.firstChild) {
+    contenedorCarrito.firstChild.remove();
+  }
 };
