@@ -8,8 +8,17 @@ let carritoCursos = [];
 
 // * EVENTOS
 document.addEventListener('DOMContentLoaded', () => {
+
   listaCursos.addEventListener('click', agregarCurso);
+
   carrito.addEventListener('click', eliminarCurso);
+
+  //* Vacia el carrito
+  btnVaciarCarrito.addEventListener('click', () => {
+    carritoCursos = [];
+
+    limpiarCarritoHTML();
+  });
 });
 
 
