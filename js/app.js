@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mostrarNotificacion();
   });
+
+  // Obtine los datos de local storage
+  carritoCursos = JSON.parse(localStorage.getItem('carrito')) || [];
+
+  mostrarCarritoHTML();
+  mostrarNotificacion();
 });
 
 
@@ -48,6 +54,9 @@ const agregarCurso = (event) => {
     mostrarCarritoHTML();
 
     mostrarNotificacion();
+
+    // Sincroniza con el local storage
+    sincronizarStorage();
   }
 }
 
@@ -126,6 +135,8 @@ const eliminarCurso = (event) => {
     mostrarCarritoHTML();
 
     mostrarNotificacion();
+
+    sincronizarStorage();
   }
 };
 
@@ -147,4 +158,11 @@ const mostrarNotificacion = () => {
 
     document.querySelector('.submenu').appendChild(notificacionHTML);
   }
+};
+
+
+
+// * Sincroniza con el localStorage
+const sincronizarStorage = () => {
+  localStorage.setItem('carrito', JSON.stringify(carritoCursos));
 };
